@@ -1,0 +1,42 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Przegląd wydarzeń</h1>
+  <mat-tab-group class="kroki">
+    <mat-tab label="Wybór wydarzeń"></mat-tab>
+    <mat-tab label="Logowanie"></mat-tab>
+    <mat-tab label="Formularz"></mat-tab>
+    <mat-tab label="Podsumowanie"></mat-tab>
+    <mat-tab label="Generacja biletu"></mat-tab>
+  </mat-tab-group>
+  <mat-card-subtitle><div class="licznik">Zapisałeś się na 1 z max 3 wydarzeń</div></mat-card-subtitle>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="bolt">{{card.content}}</div>
+          <mat-card class="opis">
+            <div>{{card.opis}}</div>
+          </mat-card>
+          <mat-card>
+            <img class="image" mat-card-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIF.24OGqpWwO%252fyl4D7j3A6nlg%26pid%3DApi&f=1" alt="Photo of a Shiba Inu">
+          </mat-card>
+          <section class="example-section">
+            <mat-checkbox class="example-margin">Zapisz się!</mat-checkbox>
+          </section>
+        </mat-card-content>
+        
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
