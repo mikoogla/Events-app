@@ -13,10 +13,10 @@ export class DashComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1',opis: 'Card 1',content:"09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'Card 2',opis: 'Card 1',content:"09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'Card 3',opis: 'Card 1',content:"09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'Card 4',opis: 'Card 1',content:"09:00 - 10:00", cols: 1, rows: 1 }
+          { title: 'kod',opis: 'kod',content:"09:00 - 10:00", cols: 1, rows: 1 },
+          { title: 'pętle',opis: 'pętle',content:"09:00 - 10:00", cols: 1, rows: 1 },
+          { title: 'praca',opis: 'praca',content:"09:00 - 10:00", cols: 1, rows: 1 },
+          { title: 'matematyka',opis: 'matematyka',content:"09:00 - 10:00", cols: 1, rows: 1 }
         ];
       }
 
