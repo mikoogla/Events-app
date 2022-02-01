@@ -18,12 +18,18 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ListAvailableEventsComponent } from './list-available-events/list-available-events.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { NewUserFormComponent } from './new-user-form/new-user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashComponent,
+    ListAvailableEventsComponent,
+    LoginFormComponent,
+    NewUserFormComponent,
   ],
   imports: [
     MatTabsModule,
