@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ListAvailableEventsComponent } from './list-available-events/list-available-events.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
+import { SummaryComponent } from './summary/summary.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { NewUserFormComponent } from './new-user-form/new-user-form.component';
     ListAvailableEventsComponent,
     LoginFormComponent,
     NewUserFormComponent,
+    SummaryComponent,
+    TicketComponent,
   ],
   imports: [
     MatTabsModule,
