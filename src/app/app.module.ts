@@ -23,6 +23,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
 import { SummaryComponent } from './summary/summary.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { DataService } from './services/data.service';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { TicketComponent } from './ticket/ticket.component';
     LoginFormComponent,
     NewUserFormComponent,
     SummaryComponent,
-    TicketComponent,
+    TicketComponent
   ],
   imports: [
     MatTabsModule,
@@ -50,9 +53,11 @@ import { TicketComponent } from './ticket/ticket.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

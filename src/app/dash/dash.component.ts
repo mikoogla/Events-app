@@ -1,24 +1,3 @@
-// import { Component } from '@angular/core';
-// import { map } from 'rxjs/operators';
-// import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-
-// @Component({
-//   selector: 'app-dash',
-//   templateUrl: './dash.component.html',
-//   styleUrls: ['./dash.component.css']
-// })
-// export class DashComponent {
-//   isAvailableEventsButtonActivated: boolean = true;
-
-//   clickAvailableEventsButton() {
-//     this.isAvailableEventsButtonActivated = true;
-//     console.log("clickAvailableEventsButton()");
-//   }
-
-//   constructor() {}
-// }
-
-
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -43,4 +22,3 @@ export class DashComponent implements OnInit {
     console.log('Animation done.');
   }
 } 
-
