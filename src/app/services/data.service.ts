@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Event } from '../models/event.model';
 import { User } from '../models/user.model';
+import { Stage } from '../models/stage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { User } from '../models/user.model';
 export class DataService {
   public selectedEvents: Event[] = [];
   public hasSelectedThreeEvents: boolean = false;
+  public currentStage: Stage = 0;
 
   constructor() { }
 
