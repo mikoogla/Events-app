@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-dash',
@@ -8,5 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class DashComponent implements OnInit {
   ngOnInit() {
   }
-
+  constructor(private dataService: DataService) {}
+  
+  hasSelectedThreeEvents() {
+    return this.dataService.hasSelectedThreeEvents;
+  }
 } 

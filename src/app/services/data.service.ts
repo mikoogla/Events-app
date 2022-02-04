@@ -7,6 +7,7 @@ import { User } from '../models/user.model';
 })
 export class DataService {
   public selectedEvents: Event[] = [];
+  public hasSelectedThreeEvents: boolean = false;
 
   constructor() { }
 
@@ -22,10 +23,13 @@ export class DataService {
     if (!this.selectedEvents.find(element => element.title === event.title)) {
       this.selectedEvents.push(event);
     }
+    if (this.selectedEvents.length === 3)
+      this.hasSelectedThreeEvents = true;
   }
 
   removeEvent(event: Event) {
     this.selectedEvents = this.selectedEvents.filter(element => element.title !== event.title);
+    this.hasSelectedThreeEvents = false;
   }
 
 }
