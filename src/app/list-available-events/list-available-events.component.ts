@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Event } from '../models/event.model';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-list-available-events',
@@ -8,8 +10,6 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./list-available-events.component.css']
 })
 export class ListAvailableEventsComponent {
-
-  selectedEvents: any[] = [];
 
 /** Based on the screen size, switch from standard to one column per row */
 cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -32,18 +32,27 @@ cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   })
 );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService) {
+  }
+
+  eventsSelected() {
+    return this.dataService.getEventsSelectedCount();
+  }
 
   onCheckboxChange(event: any, card: any) {
+    
     console.log(event);
     console.log(card);
+
+    const newEvent = new Event(card.content, card.title, card.opis);
+
     if (event.checked === true) {
-      if (!this.selectedEvents.find(element => element.title === card.title))
-        this.selectedEvents.push(card);
+      this.dataService.selectEvent(newEvent);
     }
     else {
-      this.selectedEvents = this.selectedEvents.filter(x => x.title !== card.title);
+      this.dataService.removeEvent(newEvent) 
     }
-    console.log(this.selectedEvents);
+
+    console.log(this.dataService.getSelectedEvents());
   }
 }
