@@ -2,10 +2,6 @@
   <h1 class="mat-h1">Przegląd wydarzeń</h1>
   <mat-stepper linear="false" #stepper>
     <mat-step>
-      <ng-template matStepLabel>Logowanie</ng-template>
-      <app-login-form></app-login-form>
-    </mat-step>
-    <mat-step>
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
     </mat-step>
