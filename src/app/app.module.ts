@@ -26,6 +26,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { DataService } from './services/data.service';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
