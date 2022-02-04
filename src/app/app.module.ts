@@ -28,6 +28,7 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatStepperModule
+    MatStepperModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
