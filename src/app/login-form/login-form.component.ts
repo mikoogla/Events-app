@@ -22,6 +22,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onClick() {
+    
     this.dataService.currentStage = 2;
   }
 }

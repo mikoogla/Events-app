@@ -3,6 +3,7 @@ import { Event } from '../models/event.model';
 import { User } from '../models/user.model';
 import { Stage } from '../models/stage.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +11,9 @@ export class DataService {
   public selectedEvents: Event[] = [];
   public hasSelectedThreeEvents: boolean = false;
   public currentStage: Stage = 0;
+  public user: User;
 
-  constructor() { }
+  constructor() { this.user = new User('','','','','','',''); }
 
   getSelectedEvents() {
     return this.selectedEvents;
@@ -33,5 +35,4 @@ export class DataService {
     this.selectedEvents = this.selectedEvents.filter(element => element.title !== event.title);
     this.hasSelectedThreeEvents = false;
   }
-
 }

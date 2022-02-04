@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DataService } from './services/data.service';
-import { Stage } from './models/stage.model';
 
 @Component({
   selector: 'app-root',
