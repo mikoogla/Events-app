@@ -1,12 +1,12 @@
 <div class="grid-container">
   <h1 class="mat-h1">Przegląd wydarzeń</h1>
   <mat-stepper linear="true" #stepper>
-    <mat-step [completed]="hasSelectedThreeEvents()">
+    <mat-step [completed]="hasSelectedAtLeastOneEvent()">
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel><span [matTooltip]="hasSelectedThreeEvents() ? '' : 'Musisz wybrać 3 eventy zanim przejdziesz dalej'">Formularz</span></ng-template>
+      <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? '' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
       <app-new-user-form></app-new-user-form>
     </mat-step>
     <mat-step>

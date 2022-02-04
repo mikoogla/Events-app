@@ -10,8 +10,12 @@ export class DashComponent implements OnInit {
   ngOnInit() {
   }
   constructor(private dataService: DataService) {}
-  
-  hasSelectedThreeEvents() {
-    return this.dataService.hasSelectedThreeEvents;
+
+  hasSelectedAtLeastOneEvent() : boolean {
+    if(this.dataService.getEventsSelectedCount()>=1){
+      return true;
+    } 
+    return false;   
   }
+
 } 
