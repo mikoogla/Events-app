@@ -1,4 +1,4 @@
-<mat-card-subtitle><div class="licznik">Zapisałeś się na {{ eventsSelected }} z max 3 wydarzeń</div></mat-card-subtitle>
+<mat-card-subtitle><div class="licznik">Zapisałeś się na {{ selectedEvents.length }} z max 3 wydarzeń</div></mat-card-subtitle>
     <mat-grid-list cols="2" rowHeight="350px">
         <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
             <mat-card class="dashboard-card">
@@ -23,7 +23,7 @@
             <img class="image" mat-card-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIF.24OGqpWwO%252fyl4D7j3A6nlg%26pid%3DApi&f=1" alt="Photo of a Shiba Inu">
           </mat-card>
           <section class="example-section" >
-            <mat-checkbox #c class="example-margin" [matTooltip]=" c.disabled === true ? 'Można się zapisać tylko na 3 eventy' : '' " [disabled]="!c.checked && eventsSelected === 3" (change)="onCheckboxChange($event)">Zapisz się!</mat-checkbox>
+            <mat-checkbox #c class="example-margin" [matTooltip]=" c.disabled === true ? 'Można się zapisać tylko na 3 eventy' : '' " [disabled]="!c.checked && selectedEvents.length >= 3" (change)="onCheckboxChange($event, card)">Zapisz się!</mat-checkbox>
           </section>
         </mat-card-content>
       </mat-card>

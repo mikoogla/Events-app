@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -9,7 +9,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class ListAvailableEventsComponent {
 
-  eventsSelected: number = 0;
+  selectedEvents: any[] = [];
 
 /** Based on the screen size, switch from standard to one column per row */
 cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -32,12 +32,18 @@ cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   })
 );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  onCheckboxChange(event: any) {
-    if (event.checked === true)
-      this.eventsSelected++;
-    else
-      this.eventsSelected--;
+  onCheckboxChange(event: any, card: any) {
+    console.log(event);
+    console.log(card);
+    if (event.checked === true) {
+      if (!this.selectedEvents.find(element => element.title === card.title))
+        this.selectedEvents.push(card);
+    }
+    else {
+      this.selectedEvents = this.selectedEvents.filter(x => x.title !== card.title);
+    }
+    console.log(this.selectedEvents);
   }
 }
