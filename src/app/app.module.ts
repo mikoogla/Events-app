@@ -26,6 +26,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { DataService } from './services/data.service';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

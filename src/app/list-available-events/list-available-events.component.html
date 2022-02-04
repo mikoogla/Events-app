@@ -22,11 +22,10 @@
           <mat-card>
             <img class="image" mat-card-image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIF.24OGqpWwO%252fyl4D7j3A6nlg%26pid%3DApi&f=1" alt="Photo of a Shiba Inu">
           </mat-card>
-          <section class="example-section">
-            <mat-checkbox class="example-margin">Zapisz się!</mat-checkbox>
+          <section class="example-section" >
+            <mat-checkbox #c class="example-margin" [matTooltip]=" c.disabled === true ? 'Można się zapisać tylko na 3 eventy' : '' " [disabled]="!c.checked && eventsSelected === 3" (change)="onCheckboxChange($event)">Zapisz się!</mat-checkbox>
           </section>
         </mat-card-content>
-        
       </mat-card>
     </mat-grid-tile>
 </mat-grid-list>

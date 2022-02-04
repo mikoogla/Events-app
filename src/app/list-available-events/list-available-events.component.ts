@@ -9,6 +9,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class ListAvailableEventsComponent {
 
+  eventsSelected: number = 0;
+
 /** Based on the screen size, switch from standard to one column per row */
 cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   map(({ matches }) => {
@@ -31,4 +33,11 @@ cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 );
 
   constructor(private breakpointObserver: BreakpointObserver) { }
+
+  onCheckboxChange(event: any) {
+    if (event.checked === true)
+      this.eventsSelected++;
+    else
+      this.eventsSelected--;
+  }
 }
