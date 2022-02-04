@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,14 @@ export class NavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService) {}
+
+  isLoggedIn() {
+    return this.dataService.currentStage > 1;
+  }
+
+  onLogoutClick() {
+    this.dataService.currentStage = 0;
+  }
 
 }
