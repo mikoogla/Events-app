@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Event } from '../models/event.model';
 
 @Component({
   selector: 'app-summary',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private dataService: DataService) {
+   }
+
+   getSelectedEvents() {
+    return this.dataService.getSelectedEvents();
+  }
 
   ngOnInit(): void {
   }
+
+  click() {
+    console.log(this.dataService.selectedEvents);
+  }
+
+  
 
 }

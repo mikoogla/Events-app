@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-dash',
@@ -9,16 +9,9 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 export class DashComponent implements OnInit {
   ngOnInit() {
   }
-  myTabFocusChange(changeEvent: MatTabChangeEvent) {
-    console.log('Tab position: ' + changeEvent.tab.position);
-  }  
-  myTabSelectedIndexChange(index: number) {
-     console.log('Selected index: ' + index);
-  }
-  myTabSelectedTabChange(changeEvent: MatTabChangeEvent) {
-    console.log('Index: ' + changeEvent.index);
-  }  
-  myTabAnimationDone() {
-    console.log('Animation done.');
+  constructor(private dataService: DataService) {}
+  
+  hasSelectedThreeEvents() {
+    return this.dataService.hasSelectedThreeEvents;
   }
 } 

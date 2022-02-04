@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eventy2';
+
+  constructor(private dataService: DataService) {}
+
+  currentStage() {
+    return this.dataService.currentStage;
+  }
 }

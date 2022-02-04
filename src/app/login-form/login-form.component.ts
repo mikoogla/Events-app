@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+
 
 @Component({
   selector: 'app-login-form',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  public loginValid = true;
+  public username = '';
+  public password = '';
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    this.loginValid = true;
+  }
+
+  onClick() {
+    
+    this.dataService.currentStage = 2;
+  }
 }

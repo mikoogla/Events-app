@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Event } from '../models/event.model';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-list-available-events',
@@ -30,5 +32,27 @@ cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   })
 );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService) {
+  }
+
+  eventsSelected() {
+    return this.dataService.getEventsSelectedCount();
+  }
+
+  onCheckboxChange(event: any, card: any) {
+    
+    console.log(event);
+    console.log(card);
+
+    const newEvent = new Event(card.content, card.title, card.opis);
+
+    if (event.checked === true) {
+      this.dataService.selectEvent(newEvent);
+    }
+    else {
+      this.dataService.removeEvent(newEvent) 
+    }
+
+    console.log(this.dataService.getSelectedEvents());
+  }
 }
