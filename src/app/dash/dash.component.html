@@ -1,24 +1,21 @@
 <div class="grid-container">
   <h1 class="mat-h1">Przegląd wydarzeń</h1>
-  <mat-tab-group
-  (focusChange)="myTabFocusChange($event)"
-  (selectedIndexChange)="myTabSelectedIndexChange($event)"  
-  (selectedTabChange)="myTabSelectedTabChange($event)"
-  (animationDone)="myTabAnimationDone()">
-  <mat-tab label="Wybór wydarzeń">
-    <app-list-available-events></app-list-available-events>
-  </mat-tab>
-  <mat-tab label="Logowanie">
-     <app-login-form></app-login-form>
-  </mat-tab>
-  <mat-tab label="Formularz">
-     <app-new-user-form></app-new-user-form>
-  </mat-tab>
-  <mat-tab label="Podsumowanie">
-    <app-summary></app-summary>
-  </mat-tab>
-  <mat-tab label="Generacja biletu">
-    <app-ticket></app-ticket>
-  </mat-tab>
-  </mat-tab-group> 
+  <mat-stepper linear="false" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Wybór wydarzeń</ng-template>
+      <app-list-available-events></app-list-available-events>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Formularz</ng-template>
+      <app-new-user-form></app-new-user-form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Podsumowanie</ng-template>
+      <app-summary></app-summary>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Generacja biletu</ng-template>
+      <app-ticket></app-ticket>
+    </mat-step>
+  </mat-stepper>
 </div>

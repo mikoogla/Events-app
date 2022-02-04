@@ -27,6 +27,7 @@ import { DataService } from './services/data.service';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatStepperModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
