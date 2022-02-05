@@ -35,4 +35,8 @@ export class DataService {
     this.selectedEvents = this.selectedEvents.filter(element => element.title !== event.title);
     this.hasSelectedThreeEvents = false;
   }
+
+  hasFilledAllDataInUser() : boolean{
+    return false;
+  }
 }

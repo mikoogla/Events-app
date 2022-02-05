@@ -5,12 +5,17 @@
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="hasFilledAllDataInUser()">
       <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? '' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
       <app-new-user-form></app-new-user-form>
+      <div>
+        <button mat-button matStepperNext>
+          <span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Dalej</span>
+        </button>
+      </div>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Podsumowanie</ng-template>
+    <mat-step >
+      <ng-template matStepLabel><span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span></ng-template>
       <app-summary></app-summary>
     </mat-step>
     <mat-step>

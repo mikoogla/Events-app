@@ -18,4 +18,11 @@ export class DashComponent implements OnInit {
     return false;   
   }
 
+  hasFilledAllDataInUser() : boolean {
+    if(this.dataService.hasFilledAllDataInUser()){
+      return true;
+    }
+    return false;
+  }
+
 } 
