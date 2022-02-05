@@ -13,21 +13,17 @@
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Adres</mat-label>
-        <textarea matInput placeholder="ul. Piotrkowska">ul.</textarea>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Adres</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput placeholder="ul. Piotrkowska 12">ul.</textarea>
       </mat-form-field>
     </p>
    <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Miasto</mat-label>
-        <input matInput placeholder="np. ul. Piotrkowska">
+        <input matInput placeholder="Łódź">
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Kod pocztowy</mat-label>
-        <input matInput #postalCode maxlength="5" placeholder="94105" value="94043">
+        <input matInput #postalCode maxlength="5" placeholder="94105" value="">
         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
       </mat-form-field></td>     
     </tr></table>
