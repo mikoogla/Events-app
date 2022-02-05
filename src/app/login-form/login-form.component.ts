@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Stage } from '../models/stage.model';
+import { User } from '../models/user.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   public username = '';
   public password = '';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +23,25 @@ export class LoginFormComponent implements OnInit {
     this.loginValid = true;
   }
 
+  validateLoginPassword(login: string, password: string) {
+    return this.dataService.validateLoginPassword(login, password);
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'X', {
+       duration: 2000,
+       horizontalPosition: 'center',
+       verticalPosition: 'top',
+       panelClass: ['red-snackbar']
+    });
+ }
+
   onClick() {
-    this.dataService.setStage(Stage.Events);
+    if (this.validateLoginPassword(this.username, this.password) === true) {
+      this.dataService.setStage(Stage.Events);
+    } else {
+      // show login error ("Nieprawidlowy login i/lub hasło")
+      this.openSnackBar("Nieprawidłowy login i/lub hasło!");
+    }
   }
 }

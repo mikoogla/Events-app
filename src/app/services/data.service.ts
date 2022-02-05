@@ -11,9 +11,9 @@ export class DataService {
   public selectedEvents: Event[] = [];
   public hasSelectedThreeEvents: boolean = false;
   public currentStage: Stage = 0;
-  public user: User;
+  public mockupUser: User;
 
-  constructor() { this.user = new User('','','','','','',''); }
+  constructor() { this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); }
 
   getSelectedEvents() {
     return this.selectedEvents;
@@ -48,5 +48,9 @@ export class DataService {
 
   getCurrentStage() {
     return this.currentStage;
+  }
+
+  validateLoginPassword(login: string, password: string) {
+    return login === this.mockupUser.login && password === this.mockupUser.password;
   }
 }

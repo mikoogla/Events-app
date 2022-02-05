@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatTooltipModule,
     MatStepperModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
