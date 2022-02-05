@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-
+import { Stage } from '../models/stage.model';
 
 @Component({
   selector: 'app-login-form',
@@ -22,7 +22,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onClick() {
-    
-    this.dataService.currentStage = 2;
+    this.dataService.setStage(Stage.Events);
   }
 }

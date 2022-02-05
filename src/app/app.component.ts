@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './services/data.service';
+import { Stage } from './models/stage.model';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,12 @@ export class AppComponent {
 
   constructor(private dataService: DataService) {}
 
-  currentStage() {
-    return this.dataService.currentStage;
+  // this allows you to use enum.value in html template
+  public get Stage() {
+    return Stage;
+  }
+
+  getCurrentStage() {
+    return this.dataService.getCurrentStage();
   }
 }

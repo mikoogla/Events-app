@@ -35,4 +35,18 @@ export class DataService {
     this.selectedEvents = this.selectedEvents.filter(element => element.title !== event.title);
     this.hasSelectedThreeEvents = false;
   }
+
+  resetApp() {
+    this.currentStage = 0;
+    this.selectedEvents = [];
+    this.hasSelectedThreeEvents = false;
+  }
+
+  setStage(stage: Stage) {
+    this.currentStage = stage;
+  }
+
+  getCurrentStage() {
+    return this.currentStage;
+  }
 }

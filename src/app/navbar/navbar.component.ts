@@ -24,9 +24,7 @@ export class NavbarComponent {
   }
 
   onLogoutClick() {
-    this.dataService.currentStage = 0;
-    this.dataService.selectedEvents = [];
-    this.dataService.hasSelectedThreeEvents = false;
+    this.dataService.resetApp();
   }
 
 }

@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="currentStage() === 0">
+<div *ngIf="getCurrentStage() === Stage.WelcomeScreen">
     <app-login-form></app-login-form>
 </div>
 
-<div *ngIf="currentStage() === 1">
+<div *ngIf="getCurrentStage() === Stage.Registration">
     <!-- registration screen -->
 </div>
 
-<div *ngIf="currentStage() === 2">
+<div *ngIf="getCurrentStage() === Stage.Events">
     <app-dash></app-dash>
 </div>
 
