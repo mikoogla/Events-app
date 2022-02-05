@@ -4,9 +4,14 @@
     <mat-step [completed]="hasSelectedAtLeastOneEvent()">
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
+      <div>
+        <button mat-button matStepperNext>
+          <span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Dalej</span>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]="hasFilledAllDataInUser()">
-      <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? '' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
+      <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
       <app-new-user-form></app-new-user-form>
       <div>
         <button mat-button matStepperNext>
