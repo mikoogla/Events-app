@@ -12,8 +12,12 @@ export class DataService {
   public hasSelectedThreeEvents: boolean = false;
   public currentStage: Stage = 0;
   public mockupUser: User;
+  public user: User;
 
-  constructor() { this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); }
+  constructor() { 
+    this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
+    this.user = new User('','','','','','',''); 
+  }
 
   getSelectedEvents() {
     return this.selectedEvents;

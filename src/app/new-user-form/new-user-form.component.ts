@@ -18,4 +18,8 @@ export class NewUserFormComponent {
       this.dataService.user = this.user;
     }
   }
+
+  getMockupUser() {
+    return this.dataService.mockupUser;
+  }
 }
