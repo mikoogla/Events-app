@@ -2,34 +2,30 @@
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Imię</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="user.name" name="user" required>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nazwisko</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="user.lastname" name="lastname" required>
       </mat-form-field></td>
     </tr></table>
   
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Adres</mat-label>
-        <textarea matInput placeholder="ul. Piotrkowska">ul.</textarea>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Adres</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput placeholder="ul. Piotrkowska 12" [(ngModel)]="user.road" name="road" required>ul.</textarea>
       </mat-form-field>
     </p>
    <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Miasto</mat-label>
-        <input matInput placeholder="np. ul. Piotrkowska">
+        <input matInput placeholder="Łódź" [(ngModel)]="user.city" name="city" required>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Kod pocztowy</mat-label>
-        <input matInput #postalCode maxlength="5" placeholder="94105" value="94043">
+        <input matInput #postalCode maxlength="5" placeholder="94105" value="" [(ngModel)]="user.zipcode" name="zipcode" required>
         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
       </mat-form-field></td>     
     </tr></table>
   </form>
-    
+<button mat-raised-button color="primary" (click)="validateData()">validateData()</button>
