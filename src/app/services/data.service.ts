@@ -37,6 +37,9 @@ export class DataService {
   }
 
   hasFilledAllDataInUser() : boolean{
+    if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
+      return true;
+    }
     return false;
   }
 }

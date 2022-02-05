@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-dash',
@@ -24,5 +25,11 @@ export class DashComponent implements OnInit {
     }
     return false;
   }
+
+  goForward(stepper: MatStepper){
+    if(this.hasFilledAllDataInUser()){
+      stepper.next();
+    }
+}
 
 } 
