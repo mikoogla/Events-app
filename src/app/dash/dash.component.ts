@@ -27,14 +27,4 @@ export class DashComponent implements OnInit {
     return false;
   }
 
-  goBack(stepper: MatStepper){
-    stepper.previous();
-  }
-
-  goForward(stepper: MatStepper){
-    if(this.hasFilledAllDataInUser()){
-      stepper.next();
-    }
-  }
-
 } 
