@@ -14,13 +14,22 @@
       <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
       <app-new-user-form (validateData_EventEmitter)="goForward(stepper)" (goBack_EventEmitter)="goBack(stepper)"></app-new-user-form>
     </mat-step>
-    <mat-step >
+    <mat-step [completed]=true>
       <ng-template matStepLabel><span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span></ng-template>
       <app-summary></app-summary>
+      <button mat-button matStepperPrevious>
+        <span>Wstecz</span>
+      </button>
+      <button mat-button matStepperNext>
+        <span >Dalej</span>
+      </button>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]=true>
       <ng-template matStepLabel>Generacja biletu</ng-template>
       <app-ticket></app-ticket>
+      <button mat-button matStepperPrevious>
+        <span>Wstecz</span>
+      </button>
     </mat-step>
   </mat-stepper>
 </div>
