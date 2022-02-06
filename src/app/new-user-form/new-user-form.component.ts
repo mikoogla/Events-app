@@ -13,8 +13,13 @@ export class NewUserFormComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   public user: User = new User('','','','','','','');
   @Output() validateData_EventEmitter = new EventEmitter();
+  @Output() goBack_EventEmitter = new EventEmitter();
 
   constructor(private dataService: DataService) { }
+
+  goBack(){
+    this.goBack_EventEmitter.emit();
+  }
 
   acceptInputData(){
     if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
@@ -22,4 +27,5 @@ export class NewUserFormComponent {
       this.validateData_EventEmitter.emit();
     }
   }
+
 }

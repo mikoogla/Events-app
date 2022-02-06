@@ -8,8 +8,9 @@ import { MatStepper } from '@angular/material/stepper';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent implements OnInit {
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
+  
   constructor(private dataService: DataService) {}
 
   hasSelectedAtLeastOneEvent() : boolean {
@@ -26,10 +27,14 @@ export class DashComponent implements OnInit {
     return false;
   }
 
+  goBack(stepper: MatStepper){
+    stepper.previous();
+  }
+
   goForward(stepper: MatStepper){
     if(this.hasFilledAllDataInUser()){
       stepper.next();
     }
-}
+  }
 
 } 
