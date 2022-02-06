@@ -57,4 +57,11 @@ export class DataService {
   validateLoginPassword(login: string, password: string) {
     return login === this.mockupUser.login && password === this.mockupUser.password;
   }
+  
+  hasFilledAllDataInUser() : boolean{
+    if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
+      return true;
+    }
+    return false;
+  }
 }

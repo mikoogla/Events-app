@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-dash',
@@ -7,8 +8,9 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent implements OnInit {
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
+  
   constructor(private dataService: DataService) {}
 
   hasSelectedAtLeastOneEvent() : boolean {
@@ -16,6 +18,23 @@ export class DashComponent implements OnInit {
       return true;
     } 
     return false;   
+  }
+
+  hasFilledAllDataInUser() : boolean {
+    if(this.dataService.hasFilledAllDataInUser()){
+      return true;
+    }
+    return false;
+  }
+
+  goBack(stepper: MatStepper){
+    stepper.previous();
+  }
+
+  goForward(stepper: MatStepper){
+    if(this.hasFilledAllDataInUser()){
+      stepper.next();
+    }
   }
 
 } 
