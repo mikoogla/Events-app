@@ -27,4 +27,15 @@ export class DashComponent implements OnInit {
     return false;
   }
 
+  confirmDataInForm() {
+    this.dataService.confirmDataInForm();
+  }
+
+  hasConfirmedDataInForm() : boolean {
+    if(this.dataService.hasConfirmedDataInForm == true) {
+      return true;
+    }
+    return false;
+  }
+
 } 

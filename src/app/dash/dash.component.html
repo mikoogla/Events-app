@@ -10,18 +10,21 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]="hasFilledAllDataInUser()">
+    <mat-step [completed]="hasConfirmedDataInForm()">
       <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
       <app-new-user-form></app-new-user-form>
       <button mat-button matStepperPrevious>
         <span>Wstecz</span>
       </button>
+      <button mat-button (click)="confirmDataInForm()">
+        zatwierdź
+      </button>
       <button mat-button matStepperNext>
-        <span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Dalej</span>
+        <span [matTooltip]="hasConfirmedDataInForm() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Dalej</span>
       </button>
     </mat-step>
     <mat-step [completed]=true>
-      <ng-template matStepLabel><span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span></ng-template>
+      <ng-template matStepLabel><span [matTooltip]="hasConfirmedDataInForm () ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span></ng-template>
       <app-summary></app-summary>
       <button mat-button matStepperPrevious>
         <span>Wstecz</span>

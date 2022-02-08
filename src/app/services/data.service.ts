@@ -13,6 +13,7 @@ export class DataService {
   public currentStage: Stage = 0;
   public mockupUser: User;
   public user: User;
+  public hasConfirmedDataInForm : boolean = false;
 
   constructor() { 
     this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
@@ -67,4 +68,11 @@ export class DataService {
     }
     return false;
   }
+
+  confirmDataInForm() {
+    if(this.hasFilledAllDataInUser() == true){
+      this.hasConfirmedDataInForm = true;
+    }
+  }
+
 }
