@@ -18,4 +18,9 @@ export class NewUserFormComponent {
   getMockupUser() {
     return this.dataService.mockupUser;
   }
+  
+  changeValue() {
+    this.dataService.hasConfirmedDataInForm = false;
+  }
+
 }
