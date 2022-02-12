@@ -1,3 +1,22 @@
+#TODO
+priorytet: Podsumowanie
+priorytet: Bilet
+priorytet: Rejestracja
+Dalej skasować, zostawić zatwierdzenie
+Poprawa wyświetlania listy w podsumowaniu (rozwijanie elementów angular material: expansion panel)
+lista na git to co zrobiliśmy, fetures strony żebyśmy nie zapomnieli XD, co trzeba zrobić, co można na przyszłość
+znaczniki, css, 
+po zalogowaniu usuwa się rejestracja przycisk
+Ja - generacja biletu
+Formularz -> Zarejestruj się -> popup udana rejestracja -> przejście do ekranu zalogowania
+scenariusz:
+logowanie nieprawidłowe
+rejestracja
+logowanie poprawne
+itd
+branch od tego najnowszego i każdy sobie na swoim robi 
+opcja wydruku biletu/ pobrania
+
 # Eventy2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
