@@ -8,5 +8,7 @@
         <button mat-flat-button class="zaloguj" color="basic" (click)="onLogoutClick()">Wyloguj</button>
       </ng-template>
       <span class="spacer"></span>
-      <button mat-flat-button class="zaloguj" color="accent">Rejestracja</button>
+      <div *ngIf="!isLoggedIn()">
+        <button mat-flat-button class="zaloguj" color="accent">Rejestracja</button>
+      </div>
 </mat-toolbar>
