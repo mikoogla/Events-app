@@ -2,7 +2,7 @@
 priorytet: Podsumowanie
 priorytet: Bilet
 priorytet: Rejestracja
-Dalej skasować, zostawić zatwierdzenie
+
 Poprawa wyświetlania listy w podsumowaniu (rozwijanie elementów angular material: expansion panel)
 lista na git to co zrobiliśmy, fetures strony żebyśmy nie zapomnieli XD, co trzeba zrobić, co można na przyszłość
 znaczniki, css, 
