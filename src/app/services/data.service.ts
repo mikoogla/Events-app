@@ -45,6 +45,7 @@ export class DataService {
     this.currentStage = 0;
     this.selectedEvents = [];
     this.hasSelectedThreeEvents = false;
+    this.hasConfirmedDataInForm = false;
   }
 
   setStage(stage: Stage) {
