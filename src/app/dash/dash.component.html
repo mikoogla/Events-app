@@ -27,11 +27,11 @@
         <span>Wstecz</span>
       </button>
       <button mat-button matStepperNext>
-        <span >Dalej</span>
+        <span>Wygeneruj bilet</span>
       </button>
     </mat-step>
     <mat-step [completed]=true>
-      <ng-template matStepLabel>Generacja biletu</ng-template>
+      <ng-template matStepLabel><span [matTooltip]="'Wygeneruj bilet'">Generacja biletu</span></ng-template>
       <app-ticket></app-ticket>
       <button mat-button matStepperPrevious>
         <span>Wstecz</span>
