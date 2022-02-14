@@ -14,10 +14,12 @@ export class DataService {
   public mockupUser: User;
   public user: User;
   public hasConfirmedDataInForm : boolean = false;
+  public registeredUsers : User[] = [];
 
   constructor() { 
     this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
-    this.user = new User('','','','','','',''); 
+    this.user = new User('','','','','','','');
+    this.registeredUsers.push(this.mockupUser);
   }
 
   getSelectedEvents() {
@@ -57,7 +59,8 @@ export class DataService {
   }
 
   validateLoginPassword(login: string, password: string) {
-    return login === this.mockupUser.login && password === this.mockupUser.password;
+    const found = this.registeredUsers.find(user => user.login === login);
+    return found !== undefined && found.password === password;
   }
   
   hasFilledAllDataInUser() : boolean{
@@ -76,4 +79,12 @@ export class DataService {
     }
   }
 
+  isLoginAvailable(login: String) {
+    return this.registeredUsers.find(user => user.login === login) === undefined;
+  }
+
+  registerNewUser(user: User) {
+    this.registeredUsers.push(user);
+    console.log(this.registeredUsers);
+  }
 }

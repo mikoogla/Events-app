@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
+import { Stage } from '../models/stage.model';
 
 @Component({
   selector: 'app-navbar',
@@ -25,6 +26,11 @@ export class NavbarComponent {
 
   onLogoutClick() {
     this.dataService.resetApp();
+    this.dataService.setStage(Stage.WelcomeScreen);
   }
 
+  onRegisterClick() {
+    this.dataService.resetApp();
+    this.dataService.setStage(Stage.Registration);
+  }
 }
