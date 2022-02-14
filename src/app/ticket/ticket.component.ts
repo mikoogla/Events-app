@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { User } from '../models/user.model';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @Component({
   selector: 'app-ticket',
@@ -7,8 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
-  constructor() { }
+  public user = this.getMockupUser();
+  constructor(private dataService: DataService) { }
 
+  getMockupUser() {
+    return this.dataService.mockupUser;
+  }
+  
   ngOnInit(): void {
   }
 

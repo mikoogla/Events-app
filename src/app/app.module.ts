@@ -30,6 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTooltipModule,
     MatStepperModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxQRCodeModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
