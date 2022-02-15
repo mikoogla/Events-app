@@ -30,7 +30,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QRCodeModule } from 'angularx-qrcode';
+import html2canvas from 'html2canvas';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     MatStepperModule,
     FormsModule,
     MatSnackBarModule,
-    NgxQRCodeModule
+    QRCodeModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

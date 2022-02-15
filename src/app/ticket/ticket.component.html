@@ -1,4 +1,23 @@
-<mat-card>{{user.login}}</mat-card>
-<mat-card>{{user.password}}</mat-card>
-<mat-card>{{user.name}}</mat-card>
-<mat-card>{{user.lastname}}</mat-card>
+
+<mat-grid-list cols="1" rowHeight="100%">
+    
+    <mat-card id="capture">
+        <mat-card-content id="userLogin">{{user.login}}</mat-card-content>
+        <qrcode [qrdata]="user.login" [width]="256" [errorCorrectionLevel]="'M'" [colorDark]="'#3f51b5ff'" [cssClass]="'center'"></qrcode>
+    </mat-card>
+    <mat-card>
+        <button mat-button color="primary" (click)="download()">Pobierz bilet</button>
+    </mat-card>
+    
+    
+    <mat-card>Wybrane eventy:</mat-card>
+    <mat-card color="accent" class="SelectedEvents" *ngFor="let event of Events">
+        <mat-card-title>{{event.title}}</mat-card-title>
+        <mat-card-subtitle>{{event.date}}</mat-card-subtitle>
+        <mat-card-content>
+            <p>
+                {{event.description}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</mat-grid-list>

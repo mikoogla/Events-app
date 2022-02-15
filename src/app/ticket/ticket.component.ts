@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { User } from '../models/user.model';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { Event } from '../models/event.model';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-ticket',
@@ -9,15 +10,30 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-
+  public downloadContent = document.querySelector('#capture');
   public user = this.getMockupUser();
+  public Events = this.getSelectedEvents();
   constructor(private dataService: DataService) { }
 
   getMockupUser() {
     return this.dataService.mockupUser;
   }
-  
-  ngOnInit(): void {
+  getSelectedEvents() {
+    return this.dataService.getSelectedEvents();
   }
-
+  ngOnInit(): void {
+    
+  }
+  download(){
+    var container = document.getElementById("capture")!;// full page 
+			html2canvas(container).then(function(canvas) {
+                
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "Bilet_dni_informatyki.png";
+                link.href = canvas.toDataURL("image/png");
+                link.target = '_blank';
+                link.click();
+            });
+  }
 }
