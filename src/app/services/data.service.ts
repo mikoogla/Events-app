@@ -87,4 +87,13 @@ export class DataService {
     this.registeredUsers.push(user);
     console.log(this.registeredUsers);
   }
+
+  getUserByLoginFromRegisteredUsers(login: string) {
+    return this.registeredUsers.find(user => user.login === login);
+  }
+
+  login(userLogin: string) {
+    const found = this.getUserByLoginFromRegisteredUsers(userLogin);
+    this.user = found !== undefined ? found : this.mockupUser;
+  }
 }
