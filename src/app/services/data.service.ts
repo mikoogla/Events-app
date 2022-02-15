@@ -44,14 +44,18 @@ export class DataService {
   }
 
   resetApp() {
-    this.currentStage = 0;
     this.selectedEvents = [];
     this.hasSelectedThreeEvents = false;
     this.hasConfirmedDataInForm = false;
+    this.setStage(Stage.WelcomeScreen);
   }
 
   setStage(stage: Stage) {
-    this.currentStage = stage;
+    this.currentStage = Stage.Loading;
+    setTimeout(() => {
+      console.log('Now switch');
+      this.currentStage = stage;
+    }, 350);
   }
 
   getCurrentStage() {

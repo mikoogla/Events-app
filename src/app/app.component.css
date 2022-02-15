@@ -1,3 +1,7 @@
 ::ng-deep .mat-tooltip {
     font-size: 14px; 
   }
+
+.spinner {
+  margin: 2em auto;
+}

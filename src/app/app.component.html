@@ -12,3 +12,6 @@
     <app-dash></app-dash>
 </div>
 
+<div *ngIf="getCurrentStage() === Stage.Loading">
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
