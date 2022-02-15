@@ -17,6 +17,9 @@ itd
 branch od tego najnowszego i każdy sobie na swoim robi 
 opcja wydruku biletu/ pobrania
 
+branch qr-code: dodana biblioteka html2canvas, trzeba chyba ją dodać do gita żeby wszystkim działało
+
+
 # Eventy2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
