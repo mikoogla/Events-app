@@ -66,12 +66,12 @@ export class ListAvailableEventsComponent {
     return this.dataService.getEventsSelectedCount();
   }
 
-  onCheckboxChange(event: any, card: any) {
+  onCheckboxChange(event: any, card: Event) {
 
     console.log(event);
     console.log(card);
 
-    const newEvent = new Event('poniedzialek', card.content, card.title, card.opis);
+    const newEvent = new Event(card.date, card.time, card.title, card.description);
 
     if (event.checked === true) {
       this.dataService.selectEvent(newEvent);
