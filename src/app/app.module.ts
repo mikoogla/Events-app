@@ -31,6 +31,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {DialogOverviewExampleDialog} from './list-available-events/list-available-events.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     NewUserFormComponent,
     SummaryComponent,
     TicketComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     MatTabsModule,
@@ -65,7 +68,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     MatTooltipModule,
     MatStepperModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
