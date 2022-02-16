@@ -69,7 +69,7 @@ import {DialogOverviewExampleDialog} from './list-available-events/list-availabl
     MatStepperModule,
     FormsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

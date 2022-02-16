@@ -11,7 +11,9 @@ interface EventDay {
 }
 
 export interface DialogData {
-  event: Event;
+  title: string;
+  time: string;
+  description: string;
 }
 
 @Component({
@@ -81,10 +83,10 @@ export class ListAvailableEventsComponent {
     console.log(this.dataService.getSelectedEvents());
   }
 
-  openDialog(thisEvent: Event): void {
+  openDialog(event: any, card: Event): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: {event: thisEvent}
+      data: {title: card.title, time: card.time, description: card.description},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -100,7 +102,6 @@ export class ListAvailableEventsComponent {
 export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    public event: Event,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
