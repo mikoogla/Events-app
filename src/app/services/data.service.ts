@@ -68,10 +68,7 @@ export class DataService {
   }
   
   hasFilledAllDataInUser() : boolean{
-    // if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
-    //   return true;
-    // }
-    if(this.mockupUser.name != '' && this.mockupUser.lastname != '' && this.mockupUser.road != '' && this.mockupUser.city != "" && this.mockupUser.zipcode !=""){
+    if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
       return true;
     }
     return false;
