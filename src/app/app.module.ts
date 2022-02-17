@@ -31,6 +31,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     MatTooltipModule,
     MatStepperModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
