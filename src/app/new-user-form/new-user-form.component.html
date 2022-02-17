@@ -2,28 +2,28 @@
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Imię</mat-label>
-        <input matInput [(ngModel)]="getMockupUser().name" (ngModelChange)="changeValue()" name="user" required>
+        <input matInput [(ngModel)]="getUser().name" (ngModelChange)="changeValue()" name="user" required>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nazwisko</mat-label>
-        <input matInput [(ngModel)]="getMockupUser().lastname" (ngModelChange)="changeValue()" name="lastname" required>
+        <input matInput [(ngModel)]="getUser().lastname" (ngModelChange)="changeValue()" name="lastname" required>
       </mat-form-field></td>
     </tr></table>
   
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Adres</mat-label>
-        <textarea matInput [placeholder]="getMockupUser().road" [(ngModel)]="getMockupUser().road" (ngModelChange)="changeValue()" name="road" required>ul.</textarea>
+        <textarea matInput [placeholder]="getUser().road" [(ngModel)]="getUser().road" (ngModelChange)="changeValue()" name="road" required>ul.</textarea>
       </mat-form-field>
     </p>
    <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Miasto</mat-label>
-        <input matInput [placeholder]="getMockupUser().city" [(ngModel)]="getMockupUser().city" (ngModelChange)="changeValue()" name="city" required>
+        <input matInput [placeholder]="getUser().city" [(ngModel)]="getUser().city" (ngModelChange)="changeValue()" name="city" required>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Kod pocztowy</mat-label>
-        <input matInput #postalCode maxlength="6" [placeholder]="getMockupUser().zipcode" value="" [(ngModel)]="getMockupUser().zipcode" (ngModelChange)="changeValue()" name="zipcode" required>
+        <input matInput #postalCode maxlength="6" [placeholder]="getUser().zipcode" value="" [(ngModel)]="getUser().zipcode" (ngModelChange)="changeValue()" name="zipcode" required>
         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
       </mat-form-field></td>     
     </tr></table>

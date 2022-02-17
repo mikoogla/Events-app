@@ -1,24 +1,12 @@
-<mat-grid-list cols="2" rowHeight="50px">
-    <mat-grid-tile>Imię: </mat-grid-tile>
-    <mat-grid-tile>{{getName()}}</mat-grid-tile>
-    <mat-grid-tile>Nazwisko: </mat-grid-tile>
-    <mat-grid-tile>{{getLastname()}}</mat-grid-tile>
-    <mat-grid-tile>Adres: </mat-grid-tile>
-    <mat-grid-tile>{{getAddress()}}</mat-grid-tile>   
-  </mat-grid-list>
-<mat-grid-list cols="1" rowHeight="50px">
-    <mat-grid-tile>
-        Wybrane wydarzenia: 
-    </mat-grid-tile>
+<mat-grid-list cols="1" rowHeight="25px">
+    <mat-grid-tile>Imię: {{getName()}}</mat-grid-tile>
+    <mat-grid-tile>Nazwisko: {{getLastname()}}</mat-grid-tile>
+    <mat-grid-tile>Adres: {{getAddress()}}</mat-grid-tile>  
 </mat-grid-list>
-<mat-grid-list cols="1" rowHeight="150px">
-    <mat-grid-tile *ngFor="let event of getSelectedEvents()">
-        <mat-card class="dashboard-card">
-            <mat-card-header>
-                <mat-card-content>
-                    {{event.title}}
-                </mat-card-content>
-            </mat-card-header>
-        </mat-card>
-    </mat-grid-tile>
+<mat-grid-list cols="1" rowHeight="100%">    
+    <mat-card>Wybrane wydarzenia:</mat-card>
+    <mat-card color="accent" class="SelectedEvents" *ngFor="let event of getSelectedEvents()">
+        <mat-card-title>{{event.title}}</mat-card-title>
+        <mat-card-subtitle>{{event.date}}</mat-card-subtitle>
+    </mat-card>
 </mat-grid-list>

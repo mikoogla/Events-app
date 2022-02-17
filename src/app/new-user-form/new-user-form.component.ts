@@ -15,8 +15,8 @@ export class NewUserFormComponent {
  
   constructor(private dataService: DataService) { }
 
-  getMockupUser() {
-    return this.dataService.mockupUser;
+  getUser() {
+    return this.dataService.user;
   }
   
   changeValue() {
