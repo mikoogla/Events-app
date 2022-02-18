@@ -39,16 +39,35 @@ export class DashComponent implements OnInit {
     return false;
   }
 
+  hasConfirmedTicket() : boolean {
+    if(this.dataService.hasConfirmedTicket == true) {
+      return true;
+    }
+    return false;
+  }
+
   openDialogConfirmationBox(stepper: MatStepper) {
     const dialogRef = this.dialog.open(DialogConfirmation, {
       width: '250px',
-      data: { stepper : stepper},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(this.dataService.hasConfirmedTicket == true){
         stepper.next();
+      }
+    });
+  }
+
+  openDialogCancellationBox(stepper: MatStepper) {
+    const dialogRef = this.dialog.open(DialogCancellation, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(this.dataService.hasConfirmedTicket == false){
+        stepper.previous();
       }
     });
   }
@@ -68,6 +87,27 @@ export class DialogConfirmation {
   confirmClick(): void {
     this.dialogRef.close();
     this.dataService.confirmTicket();
+  }
+
+  cancelClick() : void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'dialog-cancellation',
+  templateUrl: 'dialog-cancellation.html',
+})
+export class DialogCancellation {
+  constructor(
+    public dialogRef: MatDialogRef<DialogCancellation>,
+    private dataService: DataService
+  ) { }
+
+  confirmClick(): void {
+    this.dialogRef.close();
+    this.dataService.cancelTicket();
   }
 
   cancelClick() : void {
