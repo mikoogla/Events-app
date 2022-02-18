@@ -63,7 +63,7 @@ export class ListAvailableEventsComponent {
 
   openMoreInfoBox(event: any) {
     const dialogRef = this.dialog.open(DialogMoreInfo, {
-      width: '250px',
+      width: '500px',
       data: { event: event},
     });
 
