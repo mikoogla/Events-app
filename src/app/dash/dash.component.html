@@ -5,37 +5,51 @@
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
       <div>
-        <button mat-button matStepperNext>
-          <span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Dalej</span>
-        </button>
+        <div class="button-wrapper">
+          <button mat-button matStepperNext>
+            <span
+              [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Dalej</span>
+          </button>
+        </div>
       </div>
     </mat-step>
     <mat-step [completed]="hasFilledAllDataInUser()">
-      <ng-template matStepLabel><span [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie,aby przejść dalej'">Formularz</span></ng-template>
+      <ng-template matStepLabel><span
+          [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Formularz</span>
+      </ng-template>
       <app-new-user-form></app-new-user-form>
-      <button mat-button matStepperPrevious>
-        <span>Wstecz</span>
-      </button>
-      <button mat-button matStepperNext>
-        <span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">zatwierdź</span>
-      </button>
+      <div class="button-wrapper">
+        <button mat-button matStepperPrevious>
+          <span>Wstecz</span>
+        </button>
+        <button mat-button matStepperNext>
+          <span
+            [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Zatwierdź</span>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]=true>
-      <ng-template matStepLabel><span [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span></ng-template>
+      <ng-template matStepLabel><span
+          [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span>
+      </ng-template>
       <app-summary></app-summary>
-      <button mat-button matStepperPrevious>
-        <span>Wstecz</span>
-      </button>
-      <button mat-button matStepperNext>
-        <span>Wygeneruj bilet</span>
-      </button>
+      <div class="button-wrapper">
+        <button mat-button matStepperPrevious>
+          <span>Wstecz</span>
+        </button>
+        <button mat-button matStepperNext>
+          <span>Wygeneruj bilet</span>
+        </button>
+      </div>
     </mat-step>
     <mat-step [completed]=true>
       <ng-template matStepLabel><span [matTooltip]="'Wygeneruj bilet'">Generacja biletu</span></ng-template>
       <app-ticket></app-ticket>
-      <button mat-button matStepperPrevious>
-        <span>Wstecz</span>
-      </button>
+      <div class="button-wrapper">
+        <button mat-button matStepperPrevious>
+          <span>Wstecz</span>
+        </button>
+      </div>
     </mat-step>
   </mat-stepper>
 </div>

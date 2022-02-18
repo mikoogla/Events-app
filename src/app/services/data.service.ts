@@ -44,14 +44,18 @@ export class DataService {
   }
 
   resetApp() {
-    this.currentStage = 0;
     this.selectedEvents = [];
     this.hasSelectedThreeEvents = false;
     this.hasConfirmedDataInForm = false;
+    this.setStage(Stage.WelcomeScreen);
   }
 
   setStage(stage: Stage) {
-    this.currentStage = stage;
+    this.currentStage = Stage.Loading;
+    setTimeout(() => {
+      console.log('Now switch');
+      this.currentStage = stage;
+    }, 350);
   }
 
   getCurrentStage() {
@@ -64,10 +68,7 @@ export class DataService {
   }
   
   hasFilledAllDataInUser() : boolean{
-    // if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
-    //   return true;
-    // }
-    if(this.mockupUser.name != '' && this.mockupUser.lastname != '' && this.mockupUser.road != '' && this.mockupUser.city != "" && this.mockupUser.zipcode !=""){
+    if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
       return true;
     }
     return false;

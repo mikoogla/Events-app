@@ -31,6 +31,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import {DialogMoreInfo} from './list-available-events/list-available-events.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,9 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     MatTooltipModule,
     MatStepperModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
