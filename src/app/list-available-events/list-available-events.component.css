@@ -24,3 +24,7 @@ mat-card{
   align-items: center;
   height: 100%;
 }
+
+.clickable {
+  cursor: pointer;
+}

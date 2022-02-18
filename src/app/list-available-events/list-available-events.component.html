@@ -8,8 +8,10 @@
   <mat-tab label="Poniedziałek">
     <mat-grid-list cols="1" rowHeight="100%">
       <mat-card color="accent" class="SelectedEvents" *ngFor="let event of cards | async">
-        <mat-card-title>{{event.title}}</mat-card-title>
-        <mat-card-subtitle>{{event.content}}</mat-card-subtitle>
+        <div class="clickable" matTooltip="Kliknij po więcej informacji" (click)="openMoreInfoBox(event)">
+          <mat-card-title>{{event.title}}</mat-card-title>
+          <mat-card-subtitle>{{event.content}}</mat-card-subtitle>
+        </div>
         <mat-card-content>
           <section class="example-section">
             <mat-checkbox #c class="example-margin"

@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{data.event.title}}</h1>
+<div mat-dialog-content>
+    {{data.event.content}}
+    <hr>
+    {{data.event.opis}}
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial>Ok</button>
+</div>
