@@ -16,4 +16,15 @@ export class User {
         this.city = city;
         this.zipcode = zipcode;
     }
+
+    hasAllDataFilledOut() {
+        return  !(this.city === "" || 
+                this.lastname === "" || 
+                this.login === "" || 
+                this.name === "" || 
+                this.password === "" || 
+                this.road === "" || 
+                this.zipcode === ""
+        );
+    }
 }

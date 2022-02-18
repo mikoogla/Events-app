@@ -2,13 +2,13 @@
   <span>Events</span>
   <span class="example-spacer"></span>
       <div *ngIf="!isLoggedIn(); else Wyloguj">
-        <button mat-flat-button class="zaloguj" color="basic">Zaloguj</button>
+        <button mat-flat-button class="zaloguj" color="basic" (click)="onLogoutClick()">Zaloguj</button>
       </div>
       <ng-template #Wyloguj>
         <button mat-flat-button class="zaloguj" color="basic" (click)="onLogoutClick()">Wyloguj</button>
       </ng-template>
       <span class="spacer"></span>
       <div *ngIf="!isLoggedIn()">
-        <button mat-flat-button class="zaloguj" color="accent">Rejestracja</button>
+        <button mat-flat-button class="zaloguj" color="accent" (click)="onRegisterClick()">Rejestracja</button>
       </div>
 </mat-toolbar>

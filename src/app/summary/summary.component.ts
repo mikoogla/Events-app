@@ -1,29 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Event } from '../models/event.model';
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css']
 })
-export class SummaryComponent implements OnInit {
-
+export class SummaryComponent {
 
   constructor(private dataService: DataService) {
+   }
+
+   getName() {
+    return this.dataService.user.name;
+   }
+
+   getLastname() {
+     return this.dataService.user.lastname;
+   }
+
+   getAddress() {
+    return this.dataService.user.road + ", " + this.dataService.user.zipcode + " " + this.dataService.user.city;
    }
 
    getSelectedEvents() {
     return this.dataService.getSelectedEvents();
   }
-
-  ngOnInit(): void {
-  }
-
-  click() {
-    console.log(this.dataService.selectedEvents);
-  }
-
-  
 
 }

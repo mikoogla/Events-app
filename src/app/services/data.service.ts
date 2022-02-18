@@ -14,10 +14,14 @@ export class DataService {
   public mockupUser: User;
   public user: User;
   public hasConfirmedDataInForm : boolean = false;
+  public registeredUsers : User[] = [];
+  public hasConfirmedTicket : boolean = false;
+  public hasGeneratedTicket : boolean = false;
 
   constructor() { 
     this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
-    this.user = new User('','','','','','',''); 
+    this.user = new User('','','','','','','');
+    this.registeredUsers.push(this.mockupUser);
   }
 
   getSelectedEvents() {
@@ -42,13 +46,19 @@ export class DataService {
   }
 
   resetApp() {
-    this.currentStage = 0;
     this.selectedEvents = [];
     this.hasSelectedThreeEvents = false;
+    this.hasConfirmedDataInForm = false;
+    this.hasConfirmedTicket = false;
+    this.setStage(Stage.WelcomeScreen);
   }
 
   setStage(stage: Stage) {
-    this.currentStage = stage;
+    this.currentStage = Stage.Loading;
+    setTimeout(() => {
+      console.log('Now switch');
+      this.currentStage = stage;
+    }, 350);
   }
 
   getCurrentStage() {
@@ -56,14 +66,12 @@ export class DataService {
   }
 
   validateLoginPassword(login: string, password: string) {
-    return login === this.mockupUser.login && password === this.mockupUser.password;
+    const found = this.registeredUsers.find(user => user.login === login);
+    return found !== undefined && found.password === password;
   }
   
   hasFilledAllDataInUser() : boolean{
-    // if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
-    //   return true;
-    // }
-    if(this.mockupUser.name != '' && this.mockupUser.lastname != '' && this.mockupUser.road != '' && this.mockupUser.city != "" && this.mockupUser.zipcode !=""){
+    if(this.user.name != '' && this.user.lastname != '' && this.user.road != '' && this.user.city != "" && this.user.zipcode !=""){
       return true;
     }
     return false;
@@ -74,5 +82,36 @@ export class DataService {
       this.hasConfirmedDataInForm = true;
     }
   }
+
 //tesatda
+
+  isLoginAvailable(login: String) {
+    return this.registeredUsers.find(user => user.login === login) === undefined;
+  }
+
+  registerNewUser(user: User) {
+    this.registeredUsers.push(user);
+    console.log(this.registeredUsers);
+  }
+
+  getUserByLoginFromRegisteredUsers(login: string) {
+    return this.registeredUsers.find(user => user.login === login);
+  }
+
+  login(userLogin: string) {
+    const found = this.getUserByLoginFromRegisteredUsers(userLogin);
+    this.user = found !== undefined ? found : this.mockupUser;
+  }
+
+  confirmTicket() {
+    this.setStage(this.currentStage);
+    this.hasConfirmedTicket = true;
+    this.hasGeneratedTicket = true;
+  }
+
+  cancelTicket() {
+    this.setStage(this.currentStage);
+    this.hasConfirmedTicket = false;
+    this.hasGeneratedTicket = false;
+  }
 }

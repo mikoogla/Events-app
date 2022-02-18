@@ -38,9 +38,9 @@ export class LoginFormComponent implements OnInit {
 
   onClick() {
     if (this.validateLoginPassword(this.username, this.password) === true) {
+      this.dataService.login(this.username);
       this.dataService.setStage(Stage.Events);
     } else {
-      // show login error ("Nieprawidlowy login i/lub hasło")
       this.openSnackBar("Nieprawidłowy login i/lub hasło!");
     }
   }
