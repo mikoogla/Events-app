@@ -1,6 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Przegląd wydarzeń</h1>
   <mat-stepper linear="true" #stepper>
+    <div *ngIf="hasGeneratedTicket() == false">
     <mat-step [completed]="hasSelectedAtLeastOneEvent()">
       <ng-template matStepLabel>Wybór wydarzeń</ng-template>
       <app-list-available-events></app-list-available-events>
@@ -28,7 +29,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [completed]=true>
+    <mat-step [completed]="hasConfirmedTicket()">
       <ng-template matStepLabel><span
           [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Podsumowanie</span>
       </ng-template>
@@ -37,19 +38,19 @@
         <button mat-button matStepperPrevious>
           <span>Wstecz</span>
         </button>
-        <button mat-button matStepperNext>
-          <span>Wygeneruj bilet</span>
-        </button>
+        <div class="clickable" matTooltip="Opcja umożliwia wygenerowanie biletu" (click)="openDialogConfirmationBox(stepper)">
+         <button mat-button>Wygeneruj bilet</button>
+        </div>
       </div>
     </mat-step>
-    <mat-step [completed]=true>
-      <ng-template matStepLabel><span [matTooltip]="'Wygeneruj bilet'">Generacja biletu</span></ng-template>
+    </div>
+    </mat-stepper>
+    <div *ngIf="hasGeneratedTicket()">
       <app-ticket></app-ticket>
       <div class="button-wrapper">
-        <button mat-button matStepperPrevious>
-          <span>Wstecz</span>
-        </button>
+        <div class="clickable" matTooltip="Opcja umożliwia anulowanie zapisu" (click)="openDialogCancellationBox(stepper)">
+          <button mat-button>Anuluj bilet</button>
+         </div>
       </div>
-    </mat-step>
-  </mat-stepper>
+    </div>  
 </div>

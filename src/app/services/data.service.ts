@@ -15,6 +15,8 @@ export class DataService {
   public user: User;
   public hasConfirmedDataInForm : boolean = false;
   public registeredUsers : User[] = [];
+  public hasConfirmedTicket : boolean = false;
+  public hasGeneratedTicket : boolean = false;
 
   constructor() { 
     this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
@@ -47,6 +49,7 @@ export class DataService {
     this.selectedEvents = [];
     this.hasSelectedThreeEvents = false;
     this.hasConfirmedDataInForm = false;
+    this.hasConfirmedTicket = false;
     this.setStage(Stage.WelcomeScreen);
   }
 
@@ -97,4 +100,17 @@ export class DataService {
     const found = this.getUserByLoginFromRegisteredUsers(userLogin);
     this.user = found !== undefined ? found : this.mockupUser;
   }
+
+  confirmTicket() {
+    this.setStage(this.currentStage);
+    this.hasConfirmedTicket = true;
+    this.hasGeneratedTicket = true;
+  }
+
+  cancelTicket() {
+    this.setStage(this.currentStage);
+    this.hasConfirmedTicket = false;
+    this.hasGeneratedTicket = false;
+  }
+
 }
