@@ -30,6 +30,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { QRCodeModule } from 'angularx-qrcode';
+import html2canvas from 'html2canvas';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -69,6 +71,7 @@ import {DialogMoreInfo} from './list-available-events/list-available-events.comp
     MatStepperModule,
     FormsModule,
     MatSnackBarModule,
+    QRCodeModule,
     MatProgressSpinnerModule,
     MatDialogModule
   ],

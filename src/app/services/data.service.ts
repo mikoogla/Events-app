@@ -83,6 +83,8 @@ export class DataService {
     }
   }
 
+//tesatda
+
   isLoginAvailable(login: String) {
     return this.registeredUsers.find(user => user.login === login) === undefined;
   }
@@ -112,5 +114,4 @@ export class DataService {
     this.hasConfirmedTicket = false;
     this.hasGeneratedTicket = false;
   }
-
 }
