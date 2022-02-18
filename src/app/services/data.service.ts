@@ -102,11 +102,13 @@ export class DataService {
   }
 
   confirmTicket() {
+    this.setStage(this.currentStage);
     this.hasConfirmedTicket = true;
     this.hasGeneratedTicket = true;
   }
 
   cancelTicket() {
+    this.setStage(this.currentStage);
     this.hasConfirmedTicket = false;
     this.hasGeneratedTicket = false;
   }
