@@ -9,6 +9,11 @@ export interface DialogData {
   event: any;
 }
 
+export interface EventDay {
+  date: string;
+  events: Event[];
+}
+
 @Component({
   selector: 'app-list-available-events',
   templateUrl: './list-available-events.component.html',
@@ -16,26 +21,29 @@ export interface DialogData {
 })
 export class ListAvailableEventsComponent {
 
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'kod', opis: 'kod', content: "09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'pętle', opis: 'pętle', content: "09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'praca', opis: 'praca', content: "09:00 - 10:00", cols: 1, rows: 1 },
-          { title: 'matematyka', opis: 'matematyka', content: "09:00 - 10:00", cols: 1, rows: 1 }
-        ];
-      }
+  agenda: EventDay[] = [
+    {
+        date: "19 października (wtorek)",
+        events: [
+          { date: "19 października (wtorek)", time: "09:30 - 11:00", title: "Uroczyste otwarcie", description: "Wykład otwierający - Horyzonty AI" },
+          { date: "19 października (wtorek)", time: "09:30 - 11:00", title: "Uroczyste otwarcie", description: "Wykład otwierający - Horyzonty AI" },
+          { date: "19 października (wtorek)", time: "09:30 - 11:00", title: "Uroczyste otwarcie", description: "Wykład otwierający - Horyzonty AI" }
+        ]
+    },
+    {
+      date: "20 października (wtorek)",
+      events: [
+        { date: "19 października (wtorek)", time: "09:30 - 11:00", title: "Uroczyste otwarcie", description: "Wykład otwierający - Horyzonty AI" }
+      ]
+    },
+    {
+      date: "21 października (środa)",
+      events: [
+        { date: "19 października (wtorek)", time: "09:30 - 11:00", title: "Uroczyste otwarcie", description: "Wykład otwierający - Horyzonty AI" }
+      ]
+    }
+  ]
 
-      return [
-        { title: 'Jak zabezpieczyć swój kod? Konferencja', opis: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum lacus nec scelerisque tristique. Praesent interdum dolor vitae turpis ultricies, ut molestie nunc bibendum. ', content: "09:00 - 10:00", cols: 2, rows: 1 },
-        { title: 'Pętla for czy while? Wykład', opis: 'feugiat. Phasellus laoreet est condimentum, varius massa bibendum, tincidunt massa. In vehicula elementum mi eget consectetur. Nulla rhoncus, ', content: "09:00 - 10:00", cols: 2, rows: 1 },
-        { title: 'Oferty pracy od sponsorów', opis: 'sque eu venenatis ut, accumsan ut ex. Donec commodo rh', content: "09:00 - 10:00", cols: 2, rows: 1 },
-        { title: 'Matematyka w C++, Webinar', opis: 'sem nulla, vestibulum et venenatis et, fermentum vel mauris. Aliquam viverra arcu ac ultrices viverra. Quisque auctor eleifend dolor, non', content: "09:00 - 10:00", cols: 2, rows: 1 }
-      ];
-    })
-  );
 
   constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService, public dialog: MatDialog) {
   }
@@ -49,7 +57,7 @@ export class ListAvailableEventsComponent {
     console.log(event);
     console.log(card);
 
-    const newEvent = new Event(card.content, card.title, card.opis);
+    const newEvent = new Event(card.date, card.time, card.title, card.description);
 
     if (event.checked === true) {
       this.dataService.selectEvent(newEvent);
@@ -64,7 +72,7 @@ export class ListAvailableEventsComponent {
   openMoreInfoBox(event: any) {
     const dialogRef = this.dialog.open(DialogMoreInfo, {
       width: '500px',
-      data: { event: event},
+      data: { event: event },
     });
 
     dialogRef.afterClosed().subscribe(result => {
