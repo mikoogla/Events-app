@@ -35,10 +35,11 @@ export class RegisterUserComponent implements OnInit {
     if (this.dataService.isLoginAvailable(this.newUser.login)) {
       this.dataService.registerNewUser(this.newUser);
       this.openSnackBar('Udana rejestracja');
-      setTimeout(() => {
-        console.log('Now switch to login');
-        this.dataService.resetApp();
-      }, 1000);
+      // setTimeout(() => {
+      //   console.log('Now switch to login');
+      //   this.dataService.resetApp();
+      // }, 1000);
+      this.dataService.resetApp();
     } else {
       this.openSnackBar('Użytownik z takim loginem już istnieje');
     }

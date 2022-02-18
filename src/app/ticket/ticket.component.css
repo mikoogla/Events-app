@@ -1,0 +1,30 @@
+mat-card{
+    background-color:#ffffff;
+    width: 30%;
+    text-align: center;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    outline-color: black;
+    margin-top: 1vh;
+    min-width: 250px;
+    overflow: hidden;
+    outline: 5px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#userLogin{
+
+    padding: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 100px;
+    width: auto;
+    outline: 5px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.SelectedEvents{
+    background-color: cadetblue;
+}

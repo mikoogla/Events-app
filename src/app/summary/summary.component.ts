@@ -12,15 +12,15 @@ export class SummaryComponent {
    }
 
    getName() {
-    return this.dataService.mockupUser.name;
+    return this.dataService.user.name;
    }
 
    getLastname() {
-     return this.dataService.mockupUser.lastname;
+     return this.dataService.user.lastname;
    }
 
    getAddress() {
-    return this.dataService.mockupUser.road + ", " + this.dataService.mockupUser.zipcode + " " + this.dataService.mockupUser.city;
+    return this.dataService.user.road + ", " + this.dataService.user.zipcode + " " + this.dataService.user.city;
    }
 
    getSelectedEvents() {

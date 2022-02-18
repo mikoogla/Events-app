@@ -9,7 +9,6 @@ import { Stage } from './models/stage.model';
 })
 export class AppComponent {
   title = 'eventy2';
-
   constructor(private dataService: DataService) {}
 
   // this allows you to use enum.value in html template
