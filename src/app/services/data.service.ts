@@ -16,6 +16,7 @@ export class DataService {
   public hasConfirmedDataInForm : boolean = false;
   public registeredUsers : User[] = [];
   public hasConfirmedTicket : boolean = false;
+  public hasGeneratedTicket : boolean = false;
 
   constructor() { 
     this.mockupUser = new User('jkowalski@gmail.com','1234','Jan','Kowalski','ul. Armii Krajowej 58','Katowice','40-671'); 
@@ -102,10 +103,12 @@ export class DataService {
 
   confirmTicket() {
     this.hasConfirmedTicket = true;
+    this.hasGeneratedTicket = true;
   }
 
   cancelTicket() {
     this.hasConfirmedTicket = false;
+    this.hasGeneratedTicket = false;
   }
 
 }

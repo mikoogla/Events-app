@@ -46,6 +46,13 @@ export class DashComponent implements OnInit {
     return false;
   }
 
+  hasGeneratedTicket() : boolean {
+    if(this.dataService.hasGeneratedTicket == true){
+      return true;
+    }
+    return false;
+  }
+
   openDialogConfirmationBox(stepper: MatStepper) {
     const dialogRef = this.dialog.open(DialogConfirmation, {
       width: '250px',
@@ -67,7 +74,7 @@ export class DashComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(this.dataService.hasConfirmedTicket == false){
-        stepper.previous();
+         stepper.next();
       }
     });
   }
