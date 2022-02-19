@@ -11,12 +11,12 @@ import html2canvas from 'html2canvas';
 })
 export class TicketComponent implements OnInit {
   public downloadContent = document.querySelector('#capture');
-  public user = this.getMockupUser();
+  public user = this.getUser();
   public Events = this.getSelectedEvents();
   constructor(private dataService: DataService) { }
 
-  getMockupUser() {
-    return this.dataService.mockupUser;
+  getUser() {
+    return this.dataService.user;
   }
   getSelectedEvents() {
     return this.dataService.getSelectedEvents();
