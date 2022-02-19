@@ -22,15 +22,15 @@
         <button mat-button matStepperPrevious>
           <span>Wstecz</span>
         </button>
-        <button mat-button matStepperNext (click)="confirmDataInForm()">
+        <button mat-button matStepperNext>
           <span
-            [matTooltip]="hasFilledAllDataInUser() ? 'Dane wypełnione poprawnie' : 'Uzupełnij wszystkie wymagane pola'">Zatwierdź</span>
+            [matTooltip]="getFormTooltip()">Dalej</span>
         </button>
       </div>
     </mat-step>
     <mat-step [completed]="hasConfirmedTicket()">
       <ng-template matStepLabel><span
-          [matTooltip]="hasConfirmedDataInForm() ? 'Podsumowanie wybranych wydarzeń' : 'Wymagane zatwierdzenie Formularza'">Podsumowanie</span>
+          [matTooltip]="getSummaryTooltip()">Podsumowanie</span>
       </ng-template>
       <app-summary></app-summary>
       <div class="button-wrapper">

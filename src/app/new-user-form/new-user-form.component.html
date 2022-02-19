@@ -42,6 +42,9 @@
           </mat-form-field>
         </td>
       </tr>
+      <div class="button-wrapper">
+        <mat-checkbox [checked]="isFormFilled()" (change)="onCheckboxChange($event)">Zatwierdź dane</mat-checkbox>
+      </div>
     </table>
   </form>
 </div>
