@@ -59,7 +59,7 @@
     </table>
 </form>
 
-<button mat-raised-button class="zarejestruj" color="basic" [disabled]="!hasFilledAllDataInUser()"
-    (click)="onRegisterClick()"><span
-        [matTooltip]="hasFilledAllDataInUser() ? '' : 'Wypełnij wszystkie pola'">Zarejestruj się</span></button>
+<button mat-raised-button class="zarejestruj" color="accent" [disabled]="!hasFilledAllDataInUser()"
+    (click)="onRegisterClick()" [matTooltip]="hasFilledAllDataInUser() ? '' : 'Wypełnij wszystkie pola'">
+        Zarejestruj się</button>
         

@@ -6,9 +6,8 @@
       <app-list-available-events></app-list-available-events>
       <div>
         <div class="button-wrapper">
-          <button mat-button matStepperNext>
-            <span
-              [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Dalej</span>
+          <button color="accent" class="fixedButton" mat-raised-button matStepperNext [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">
+            Dalej
           </button>
         </div>
       </div>
@@ -19,12 +18,12 @@
       </ng-template>
       <app-new-user-form></app-new-user-form>
       <div class="button-wrapper">
-        <button mat-button matStepperPrevious>
-          <span>Wstecz</span>
+        <button mat-raised-button matStepperPrevious color="primary">
+          Wstecz
         </button>
-        <button mat-button matStepperNext>
-          <span
-            [matTooltip]="getFormTooltip()">Dalej</span>
+        <div class="spacer"></div>
+        <button mat-raised-button matStepperNext [matTooltip]="getFormTooltip()" color="accent">
+          Dalej
         </button>
       </div>
     </mat-step>
@@ -34,11 +33,13 @@
       </ng-template>
       <app-summary></app-summary>
       <div class="button-wrapper">
-        <button mat-button matStepperPrevious>
-          <span>Wstecz</span>
+        <button mat-raised-button matStepperPrevious color="primary">
+          Wstecz
         </button>
+        <div class="spacer"></div>
         <div class="clickable" matTooltip="Opcja umożliwia wygenerowanie biletu" (click)="openDialogConfirmationBox(stepper)">
-         <button mat-button>Wygeneruj bilet</button>
+          <div class="spacer"></div>
+         <button mat-raised-button color="accent">Wygeneruj bilet</button>
         </div>
       </div>
     </mat-step>
@@ -48,7 +49,7 @@
       <app-ticket></app-ticket>
       <div class="button-wrapper">
         <div class="clickable" matTooltip="Opcja umożliwia anulowanie zapisu" (click)="openDialogCancellationBox(stepper)">
-          <button mat-button>Anuluj bilet</button>
+          <button mat-raised-button color="warn">Anuluj bilet</button>
          </div>
       </div>
     </div>  
