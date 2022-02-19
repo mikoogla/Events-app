@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Czy na pewno chcesz anulować bilet? </h1>
 
 <div mat-dialog-actions>
-    <button mat-button (click)="confirmClick()" cdkFocusInitial>Tak, chcę anulować</button>
-    <button mat-button (click)="cancelClick()" cdkFocusInitial>Cofnij</button>
+    <div class="button-wrapper">
+        <button mat-raised-button color="warn" (click)="confirmClick()" cdkFocusInitial>Tak, chcę anulować</button>
+        <button mat-raised-button color="primary" (click)="cancelClick()" cdkFocusInitial>Cofnij</button>
+    </div>
 </div>

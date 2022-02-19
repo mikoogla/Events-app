@@ -95,7 +95,7 @@ export class ListAvailableEventsComponent {
 @Component({
   selector: 'dialog-more-info',
   templateUrl: 'dialog-more-info.html',
-  styleUrls: ['./dialog-more-info.css']
+  styleUrls: ['./list-available-events.component.css']
 })
 export class DialogMoreInfo {
   constructor(
