@@ -1,5 +1,4 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Przegląd wydarzeń</h1>
   <mat-stepper linear="true" #stepper>
     <div *ngIf="hasGeneratedTicket() == false">
     <mat-step [completed]="hasSelectedAtLeastOneEvent()">
