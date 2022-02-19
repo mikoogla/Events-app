@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
 import { Stage } from '../models/stage.model';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,6 @@ import { Stage } from '../models/stage.model';
 })
 export class NavbarComponent {
 
-  public screenWidth: any;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -21,6 +21,20 @@ export class NavbarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService) {}
 
+    isVertical = false;
+
+    ngOnInit() {
+      this.onWindowResize();
+    }
+
+    @HostListener('window:resize') onWindowResize() {
+    if (window.innerWidth <= 500) {
+      this.isVertical = true;
+    } else {
+      this.isVertical = false;
+    }
+  }
+  
   isLoggedIn() {
     return this.dataService.currentStage > 1;
   }
@@ -34,8 +48,4 @@ export class NavbarComponent {
     this.dataService.setStage(Stage.Registration);
   }
 
-  isMobileScreen(){
-    if (window.innerWidth <= 500) return 1;
-    else return 0;
-  }
 }
