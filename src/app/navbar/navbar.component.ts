@@ -12,6 +12,7 @@ import { Stage } from '../models/stage.model';
 })
 export class NavbarComponent {
 
+  public screenWidth: any;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -25,12 +26,16 @@ export class NavbarComponent {
   }
 
   onLogoutClick() {
-    this.dataService.resetApp();
-    this.dataService.setStage(Stage.WelcomeScreen);
+    this.dataService.logout();
   }
 
   onRegisterClick() {
     this.dataService.resetApp();
     this.dataService.setStage(Stage.Registration);
+  }
+
+  isMobileScreen(){
+    if (window.innerWidth <= 500) return 1;
+    else return 0;
   }
 }

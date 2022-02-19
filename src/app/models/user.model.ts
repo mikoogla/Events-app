@@ -1,3 +1,5 @@
+import { Event } from './event.model'
+
 export class User {
     public login: string;
     public password: string;
@@ -6,6 +8,9 @@ export class User {
     public road: string;
     public city: string;
     public zipcode: string;
+    public hasConfirmedTicket: boolean = false;
+    public hasGeneratedTicket: boolean = false;
+    public selectedEvents: Event[] = [];
 
     constructor(login: string, password: string, name: string, lastname: string, road: string, city: string, zipcode: string) {
         this.login = login;

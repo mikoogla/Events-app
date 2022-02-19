@@ -79,6 +79,21 @@ export class DashComponent implements OnInit {
     });
   }
 
+  getFormTooltip() : string {
+    if (!this.hasFilledAllDataInUser())
+      return "Uzupełnij wszystkie wymagane pola";
+    if (!this.dataService.hasConfirmedDataInForm)
+      return "Wymagane zatwierdzenie formularza";
+    return "";
+  }
+
+  getSummaryTooltip() : string {
+    if (!this.hasFilledAllDataInUser())
+      return "Uzupełnij wszystkie wymagane pola";
+    if (!this.dataService.hasConfirmedDataInForm)
+    return "Wymagane zatwierdzenie formularza";
+      return "Podsumowanie wybranych wydarzeń";
+  }
 } 
 
 @Component({

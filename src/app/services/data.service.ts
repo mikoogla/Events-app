@@ -101,17 +101,36 @@ export class DataService {
   login(userLogin: string) {
     const found = this.getUserByLoginFromRegisteredUsers(userLogin);
     this.user = found !== undefined ? found : this.mockupUser;
+    this.selectedEvents = this.user.selectedEvents;
+    this.hasConfirmedTicket = this.user.hasConfirmedTicket;
+    this.hasGeneratedTicket = this.user.hasGeneratedTicket;
   }
 
   confirmTicket() {
     this.setStage(this.currentStage);
     this.hasConfirmedTicket = true;
     this.hasGeneratedTicket = true;
+    this.user.hasConfirmedTicket = true;
+    this.user.hasGeneratedTicket = true;
   }
 
   cancelTicket() {
     this.setStage(this.currentStage);
     this.hasConfirmedTicket = false;
     this.hasGeneratedTicket = false;
+    this.user.hasConfirmedTicket = false;
+    this.user.hasGeneratedTicket = false;
+    this.selectedEvents = [];
+    this.user.selectedEvents = [];
+  }
+
+  logout() {
+    this.user.selectedEvents = this.selectedEvents;
+    if (!this.user.hasGeneratedTicket)
+      this.user.selectedEvents = [];
+    let before = this.getUserByLoginFromRegisteredUsers(this.user.login);
+    before = this.user;
+    this.resetApp();
+    this.setStage(Stage.WelcomeScreen);
   }
 }

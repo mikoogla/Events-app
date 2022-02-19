@@ -23,4 +23,15 @@ export class NewUserFormComponent {
     this.dataService.hasConfirmedDataInForm = false;
   }
 
+  onCheckboxChange(event: any) {
+    if (event.checked === true)
+      this.dataService.hasConfirmedDataInForm = true;
+    else
+      this.dataService.hasConfirmedDataInForm = false;
+  }
+
+  isFormFilled() : boolean {
+    return this.dataService.hasConfirmedDataInForm;
+  }
+
 }
