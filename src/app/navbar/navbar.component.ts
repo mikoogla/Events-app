@@ -25,8 +25,7 @@ export class NavbarComponent {
   }
 
   onLogoutClick() {
-    this.dataService.resetApp();
-    this.dataService.setStage(Stage.WelcomeScreen);
+    this.dataService.logout();
   }
 
   onRegisterClick() {
