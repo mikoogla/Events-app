@@ -126,6 +126,8 @@ export class DataService {
 
   logout() {
     this.user.selectedEvents = this.selectedEvents;
+    if (!this.user.hasGeneratedTicket)
+      this.user.selectedEvents = [];
     let before = this.getUserByLoginFromRegisteredUsers(this.user.login);
     before = this.user;
     this.resetApp();
