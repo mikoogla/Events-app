@@ -14,6 +14,7 @@ app-navbar {
   right: 0;
   z-index: 2;
 }
+
 .content{
   margin-top: 10vh;
   z-index: 0;
