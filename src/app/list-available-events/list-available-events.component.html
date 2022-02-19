@@ -5,39 +5,25 @@
 </div>
 
 <mat-tab-group mat-align-tabs="center">
-  <mat-tab label="Poniedziałek">
-    <mat-grid-list cols="1" rowHeight="100%">
-      <mat-card color="accent" class="SelectedEvents" *ngFor="let event of cards | async">
-        <div class="clickable" matTooltip="Kliknij po więcej informacji" (click)="openMoreInfoBox(event)">
-          <mat-card-title>{{event.title}}</mat-card-title>
-          <mat-card-subtitle>{{event.content}}</mat-card-subtitle>
-        </div>
-        <mat-card-content>
-          <section class="example-section">
-            <mat-checkbox #c class="example-margin"
-              [matTooltip]=" c.disabled === true ? 'Można zapisać się maksymalnie na 3 wydarzenia' : '' "
-              [disabled]="!c.checked && eventsSelected() >= 3" (change)="onCheckboxChange($event, event)">Zapisz się!
-            </mat-checkbox>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-list>
-  </mat-tab>
-  <mat-tab label="Wtorek">
-    <mat-grid-list cols="1" rowHeight="100%">
-      <mat-card color="accent" class="SelectedEvents" *ngFor="let event of cards | async">
-        <mat-card-title>{{event.title}}</mat-card-title>
-        <mat-card-subtitle>{{event.content}}</mat-card-subtitle>
-        <mat-card-content>
-          <section class="example-section">
-            <mat-checkbox #c class="example-margin"
-              [matTooltip]=" c.disabled === true ? 'Można zapisać się maksymalnie na 3 wydarzenia' : '' "
-              [disabled]="!c.checked && eventsSelected() >= 3" (change)="onCheckboxChange($event, event)">Zapisz się!
-            </mat-checkbox>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-list>
-  </mat-tab>
+  <div *ngFor="let day of agenda">
+    <mat-tab [label]="day.date">
+      <mat-grid-list cols="1" rowHeight="100%">
+        <mat-card color="accent" class="SelectedEvents" *ngFor="let event of day.events">
+          <div class="clickable" matTooltip="Kliknij po więcej informacji" (click)="openMoreInfoBox(event)">
+            <mat-card-title>{{event.title}}</mat-card-title>
+            <mat-card-subtitle>{{event.time}}</mat-card-subtitle>
+          </div>
+          <mat-card-content>
+            <section class="example-section">
+              <mat-checkbox #c class="example-margin"
+                [matTooltip]=" c.disabled === true ? 'Można zapisać się maksymalnie na 3 wydarzenia' : '' "
+                [disabled]="!c.checked && eventsSelected() >= 3" (change)="onCheckboxChange($event, event)">Zapisz się!
+              </mat-checkbox>
+            </section>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-list>
+    </mat-tab>
+  </div>
 </mat-tab-group>
 
