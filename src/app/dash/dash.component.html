@@ -13,7 +13,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step [completed]="hasFilledAllDataInUser()">
+    <mat-step [completed]="hasConfirmedDataInForm()">
       <ng-template matStepLabel><span
           [matTooltip]="hasSelectedAtLeastOneEvent() ? 'Kliknij, aby przejść dalej' : 'Wybierz co najmniej 1 wydarzenie, aby przejść dalej'">Formularz</span>
       </ng-template>
