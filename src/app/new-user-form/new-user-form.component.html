@@ -43,7 +43,7 @@
         </td>
       </tr>
       <div class="button-wrapper">
-        <mat-checkbox (change)="onCheckboxChange($event)">Zatwierdź dane</mat-checkbox>
+        <mat-checkbox [checked]="isFormFilled()" (change)="onCheckboxChange($event)">Zatwierdź dane</mat-checkbox>
       </div>
     </table>
   </form>
