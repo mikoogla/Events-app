@@ -13,11 +13,6 @@
     <mat-card>Wybrane eventy:</mat-card>
     <mat-card color="accent" class="SelectedEvents" *ngFor="let event of Events">
         <mat-card-title>{{event.title}}</mat-card-title>
-        <mat-card-subtitle>{{event.date}}</mat-card-subtitle>
-        <mat-card-content>
-            <p>
-                {{event.description}}
-            </p>
-        </mat-card-content>
+        <mat-card-subtitle>{{event.date}} {{event.time}}</mat-card-subtitle>
     </mat-card>
 </mat-grid-list>
