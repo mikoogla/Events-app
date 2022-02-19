@@ -120,6 +120,8 @@ export class DataService {
     this.hasGeneratedTicket = false;
     this.user.hasConfirmedTicket = false;
     this.user.hasGeneratedTicket = false;
+    this.selectedEvents = [];
+    this.user.selectedEvents = [];
   }
 
   logout() {
