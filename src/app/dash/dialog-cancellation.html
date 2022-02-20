@@ -1,6 +1,10 @@
+<div class="button-wrapper">
+    <mat-icon color="warn">warning</mat-icon>
+</div>
+
 <h1 mat-dialog-title>Czy na pewno chcesz anulować bilet? </h1>
 
-<div mat-dialog-actions>
+<div mat-dialog-actions align="center">
     <div class="button-wrapper">
         <button mat-raised-button color="primary" (click)="cancelClick()" cdkFocusInitial>Cofnij</button>
         <button mat-raised-button color="warn" (click)="confirmClick()" cdkFocusInitial>Tak, chcę anulować</button>

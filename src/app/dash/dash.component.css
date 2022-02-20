@@ -62,3 +62,8 @@ mat-raised-button{
 .fixedButton:hover{
   background-color: rgb(204, 193, 193);
 }
+
+mat-icon {
+  transform: scale(2);
+  margin: 1em;
+}
