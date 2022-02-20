@@ -5,13 +5,13 @@
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Imię</mat-label>
-            <input matInput [(ngModel)]="getUser().name" (ngModelChange)="changeValue()" name="user" required>
+            <input matInput [disabled]="userConfirmedDataInForm()" [(ngModel)]="getUser().name" (ngModelChange)="changeValue()" name="user" required>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nazwisko</mat-label>
-            <input matInput [(ngModel)]="getUser().lastname" (ngModelChange)="changeValue()" name="lastname" required>
+            <input matInput [disabled]="userConfirmedDataInForm()" [(ngModel)]="getUser().lastname" (ngModelChange)="changeValue()" name="lastname" required>
           </mat-form-field>
         </td>
       </tr>
@@ -20,7 +20,7 @@
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Adres</mat-label>
-        <textarea matInput [placeholder]="getUser().road" [(ngModel)]="getUser().road" (ngModelChange)="changeValue()"
+        <textarea matInput [disabled]="userConfirmedDataInForm()" [placeholder]="getUser().road" [(ngModel)]="getUser().road" (ngModelChange)="changeValue()"
           name="road" required>ul.</textarea>
       </mat-form-field>
     </p>
@@ -29,14 +29,14 @@
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Miasto</mat-label>
-            <input matInput [placeholder]="getUser().city" [(ngModel)]="getUser().city" (ngModelChange)="changeValue()"
+            <input matInput [disabled]="userConfirmedDataInForm()" [placeholder]="getUser().city" [(ngModel)]="getUser().city" (ngModelChange)="changeValue()"
               name="city" required>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Kod pocztowy</mat-label>
-            <input matInput #postalCode maxlength="6" [placeholder]="getUser().zipcode" value=""
+            <input [disabled]="userConfirmedDataInForm()" matInput #postalCode maxlength="6" [placeholder]="getUser().zipcode" value=""
               [(ngModel)]="getUser().zipcode" (ngModelChange)="changeValue()" name="zipcode" required>
             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
           </mat-form-field>

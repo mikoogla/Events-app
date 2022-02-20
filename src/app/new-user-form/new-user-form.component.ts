@@ -34,4 +34,7 @@ export class NewUserFormComponent {
     return this.dataService.hasConfirmedDataInForm;
   }
 
+  userConfirmedDataInForm() : boolean {
+    return this.dataService.hasConfirmedDataInForm;
+  }
 }
