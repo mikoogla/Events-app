@@ -38,8 +38,15 @@ export class NewUserFormComponent {
       this.dataService.hasConfirmedDataInForm = false;
   }
 
+  hasFilledAllDataInUser() : boolean {
+    return this.dataService.hasFilledAllDataInUser();
+  }
+
   isFormFilled() : boolean {
     return this.dataService.hasConfirmedDataInForm;
   }
 
+  userConfirmedDataInForm() : boolean {
+    return this.dataService.hasConfirmedDataInForm;
+  }
 }
