@@ -11,7 +11,7 @@
         <mat-card color="accent" class="SelectedEvents" *ngFor="let event of day.events">
           <div class="clickable" matTooltip="Kliknij po więcej informacji" (click)="openMoreInfoBox(event)">
             <mat-card-title>{{event.title}}</mat-card-title>
-            <mat-card-subtitle>{{event.time}}</mat-card-subtitle>
+            <mat-card-content>{{event.time}}</mat-card-content>
           </div>
           <mat-card-content>
             <section class="example-section">
