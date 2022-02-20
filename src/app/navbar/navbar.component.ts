@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
 import { Stage } from '../models/stage.model';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -20,17 +21,31 @@ export class NavbarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private dataService: DataService) {}
 
+    isVertical = false;
+
+    ngOnInit() {
+      this.onWindowResize();
+    }
+
+    @HostListener('window:resize') onWindowResize() {
+    if (window.innerWidth <= 500) {
+      this.isVertical = true;
+    } else {
+      this.isVertical = false;
+    }
+  }
+  
   isLoggedIn() {
     return this.dataService.currentStage > 1;
   }
 
   onLogoutClick() {
-    this.dataService.resetApp();
-    this.dataService.setStage(Stage.WelcomeScreen);
+    this.dataService.logout();
   }
 
   onRegisterClick() {
     this.dataService.resetApp();
     this.dataService.setStage(Stage.Registration);
   }
+
 }

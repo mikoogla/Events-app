@@ -36,6 +36,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogMoreInfo} from './list-available-events/list-available-events.component';
+import {DialogCancellation} from './dash/dash.component'
+import { DialogConfirmation } from './dash/dash.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,10 @@ import {DialogMoreInfo} from './list-available-events/list-available-events.comp
     NewUserFormComponent,
     SummaryComponent,
     TicketComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    DialogMoreInfo,
+    DialogCancellation,
+    DialogConfirmation
   ],
   imports: [
     MatTabsModule,

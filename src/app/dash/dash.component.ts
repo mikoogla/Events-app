@@ -55,7 +55,7 @@ export class DashComponent implements OnInit {
 
   openDialogConfirmationBox(stepper: MatStepper) {
     const dialogRef = this.dialog.open(DialogConfirmation, {
-      width: '250px',
+      width: '200px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -68,7 +68,7 @@ export class DashComponent implements OnInit {
 
   openDialogCancellationBox(stepper: MatStepper) {
     const dialogRef = this.dialog.open(DialogCancellation, {
-      width: '250px',
+      width: '300px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -79,11 +79,27 @@ export class DashComponent implements OnInit {
     });
   }
 
+  getFormTooltip() : string {
+    if (!this.hasFilledAllDataInUser())
+      return "Uzupełnij wszystkie wymagane pola";
+    if (!this.dataService.hasConfirmedDataInForm)
+      return "Wymagane zatwierdzenie formularza";
+    return "";
+  }
+
+  getSummaryTooltip() : string {
+    if (!this.hasFilledAllDataInUser())
+      return "Uzupełnij wszystkie wymagane pola";
+    if (!this.dataService.hasConfirmedDataInForm)
+    return "Wymagane zatwierdzenie formularza";
+      return "Podsumowanie wybranych wydarzeń";
+  }
 } 
 
 @Component({
   selector: 'dialog-confirmation',
   templateUrl: 'dialog-confirmation.html',
+  styleUrls: ['./dash.component.css']
 })
 export class DialogConfirmation {
   constructor(
@@ -105,6 +121,7 @@ export class DialogConfirmation {
 @Component({
   selector: 'dialog-cancellation',
   templateUrl: 'dialog-cancellation.html',
+  styleUrls: ['./dash.component.css']
 })
 export class DialogCancellation {
   constructor(

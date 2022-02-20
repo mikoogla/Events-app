@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-  <span>Events</span>
+  <span *ngIf="!isVertical">Łódzkie Dni Informatyki</span>
+  <span *ngIf="isVertical">ŁDI</span>
   <span class="example-spacer"></span>
       <div *ngIf="!isLoggedIn(); else Wyloguj">
         <button mat-flat-button class="zaloguj" color="basic" (click)="onLogoutClick()">Zaloguj</button>

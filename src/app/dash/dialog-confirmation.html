@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Czy chcesz wygenerować bilet? </h1>
 
-<div mat-dialog-actions>
-    <button mat-button (click)="confirmClick()" cdkFocusInitial>Zatwierdź</button>
-    <button mat-button (click)="cancelClick()" cdkFocusInitial>Anuluj</button>
+<div mat-dialog-actions align="center">
+    <div class="button-wrapper">
+        <button mat-raised-button color="primary" (click)="cancelClick()" cdkFocusInitial>Anuluj</button>
+        <button mat-raised-button color="accent" (click)="confirmClick()" cdkFocusInitial>Tak</button>
+    </div>
 </div>

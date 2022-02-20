@@ -13,9 +13,11 @@ mat-card{
   margin-top: 1em;
   margin-bottom: 1em;
 } 
-
+mat-grid-list {
+  overflow: hidden;
+}
 .SelectedEvents{
-  background-color: cadetblue;
+  background-color: #b9d9f5;
 }
 
 .center {
@@ -27,4 +29,11 @@ mat-card{
 
 .clickable {
   cursor: pointer;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

@@ -1,3 +1,9 @@
+mat-raised-button{
+  margin-left: 1vw;
+}
+.spacer{
+  width: 2px;
+}
 .grid-container {
   margin: 20px;
 }
@@ -47,4 +53,17 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+.fixedButton{
+  position: fixed;
+  bottom: 2vh;
+  z-index: 3;
+}
+.fixedButton:hover{
+  background-color: rgb(204, 193, 193);
+}
+
+mat-icon {
+  transform: scale(2);
+  margin: 1em;
 }
