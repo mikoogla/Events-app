@@ -1,24 +1,3 @@
-#TODO
-priorytet: Podsumowanie
-priorytet: Bilet
-priorytet: Rejestracja
-
-Poprawa wyświetlania listy w podsumowaniu (rozwijanie elementów angular material: expansion panel)
-lista na git to co zrobiliśmy, fetures strony żebyśmy nie zapomnieli XD, co trzeba zrobić, co można na przyszłość
-znaczniki, css, 
-po zalogowaniu usuwa się rejestracja przycisk
-Ja - generacja biletu
-Formularz -> Zarejestruj się -> popup udana rejestracja -> przejście do ekranu zalogowania
-scenariusz:
-logowanie nieprawidłowe
-rejestracja
-logowanie poprawne
-itd
-branch od tego najnowszego i każdy sobie na swoim robi 
-opcja wydruku biletu/ pobrania
-
-branch qr-code: dodana biblioteka html2canvas, trzeba chyba ją dodać do gita żeby wszystkim działało
-
 
 # Eventy2
 
