@@ -23,6 +23,14 @@ export class NewUserFormComponent {
     this.dataService.hasConfirmedDataInForm = false;
   }
 
+  changeTextColor() : string {
+    if(this.dataService.hasConfirmedDataInForm == true){
+      return "green";
+    }else{
+      return "black";
+    }
+  }
+
   onCheckboxChange(event: any) {
     if (event.checked === true)
       this.dataService.hasConfirmedDataInForm = true;
